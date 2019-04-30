@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css?family=Karla|Montserrat:300,400,900");
+.main-title {
+  color: #090909;
+  font-size: 5rem;
+  line-height: 0.95; }
+  .main-title span {
+    display: block;
+    color: #fff200;
+    font-size: 5.8rem;
+    text-align: right; }
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+body {
+  margin: 0; }
+
+img {
+  max-width: 100%;
+  height: auto; }
+
+nav {
+  padding: 0.5em; }
+
+.hidden {
+  display: none; }
+
+.section {
+  padding: 4em 2em; }
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #9d9d9d;
+  font-weight: 300; }
+
+h1,
+h2,
+h3,
+p,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0; }
+
+h1,
+h2 {
+  font-family: "Karla", sans-serif; }
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+a {
+  color: #090909;
+  text-decoration: none; }
+
+.nav {
+  position: absolute;
+  width: 100%; }
+  .nav__logo {
+    float: left;
+    padding: 0.5em;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 0px; }
+    @media only screen and (max-width: 860px) {
+      .nav__logo {
+        padding: 0; } }
+  .nav__list {
+    float: right; }
+    @media only screen and (max-width: 860px) {
+      .nav__list {
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+        width: 100%; } }
+  .nav__link {
+    display: inline-block;
+    padding: 1em; }
+    .nav__link a {
+      outline: none;
+      text-transform: uppercase;
+      font-weight: bolder; }
+      @media only screen and (max-width: 860px) {
+        .nav__link a {
+          padding: 0.625em 1.5em;
+          opacity: 0;
+          -webkit-transform: translateX(-1.3em);
+                  transform: translateX(-1.3em);
+          -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease; } }
+    @media only screen and (max-width: 860px) {
+      .nav__link {
+        display: block;
+        float: none;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 0.625em; }
+        .nav__link:nth-child(1) a {
+          -webkit-transition-delay: 0.2s;
+                  transition-delay: 0.2s; }
+        .nav__link:nth-child(2) a {
+          -webkit-transition-delay: 0.3s;
+                  transition-delay: 0.3s; }
+        .nav__link:nth-child(3) a {
+          -webkit-transition-delay: 0.4s;
+                  transition-delay: 0.4s; } }
+  @media only screen and (max-width: 860px) {
+    .nav__container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: #fff;
+      opacity: 0;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
+    .nav__btn {
+      position: fixed;
+      right: 0.625em;
+      top: 0.625em;
+      display: block;
+      width: 3em;
+      height: 3em;
+      cursor: pointer;
+      z-index: 9999;
+      border-radius: 50%; }
+    .nav__bar, .nav__bar:before, .nav__bar:after {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #090909;
+      border-radius: 2px;
+      margin-left: 14px; }
+    .nav__bar {
+      margin-top: 4px;
+      opacity: 1; }
+      .nav__bar:before {
+        margin-top: 1em; }
+      .nav__bar:after {
+        margin-top: 4px; } }
+
+/* When checked it only rotates entire navbars by 45 deg */
+#nav:checked + .nav__btn {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg); }
+
+#nav:checked + .nav__btn .nav__bar {
+  background: #000;
+  -webkit-transition: -webkit-transform 0.2s ease;
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease; }
+
+/* first bars moves down by 6px and rotates 180 to form back slash  */
+#nav:checked + .nav-btn .nav__bar:nth-child(1) {
+  -webkit-transform: translateY(6px) rotate(180deg);
+          transform: translateY(6px) rotate(180deg); }
+
+/* Checked - hide second bar */
+#nav:checked + .nav-btn .nav__bar:nth-child(2) {
+  opacity: 0; }
+
+/* Checked - move third bar up and create forward slash */
+#nav:checked + .nav-btn .nav__bar:nth-child(3) {
+  -webkit-transform: translateY(-6px) rotate(90deg);
+          transform: translateY(-6px) rotate(90deg); }
+
+/* Put navbar above everything else and appear */
+#nav:checked ~ .nav__container {
+  z-index: 9990;
+  opacity: 1; }
+
+/* links animation */
+#nav:checked ~ .nav__container ul li a {
+  opacity: 1;
+  /* make links appear */
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  /* moving links to all the way to the right side screen*/ }
+
+/* Hiding default checkbox */
+.hidden {
+  display: none; }
+
+.section--home {
+  background: url(../img/main.jpg);
+  background-size: cover;
+  padding: 10em 4em;
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+/*# sourceMappingURL=main.css.map */

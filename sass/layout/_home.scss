@@ -1,0 +1,11 @@
+.section--home {
+  background: url(../img/main.jpg);
+  background-size: cover;
+  padding: 10em 4em;
+  width: 100%;
+  min-height: 100vh;
+
+  // Centering h1 - main headline
+  display: flex;
+  align-items: center;
+}
