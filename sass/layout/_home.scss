@@ -1,11 +1,42 @@
 .section--home {
-  background: url(../img/main.jpg);
+  background: url(../img/bg.jpg);
   background-size: cover;
   padding: 10em 4em;
   width: 100%;
   min-height: 100vh;
 
+  // Clip path
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 13vw), 0 95%);
+
   // Centering h1 - main headline
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  // Pulling next section upwards
+  margin-bottom: -12em;
+
+  &__title {
+    font-size: $fs-title;
+    line-height: 0.5em;
+
+    // mini bar
+    &:after {
+      content: '';
+      display: block;
+      background-color: gray(4);
+      height: 15px;
+      width: 17%;
+      margin-top: -10px;
+      margin-left: 10px;
+    }
+
+    // short text/slogan
+    & span {
+      display: block;
+      font-size: $fs-large;
+      padding: 0.4em;
+      line-height: 1em;
+    }
+  }
 }

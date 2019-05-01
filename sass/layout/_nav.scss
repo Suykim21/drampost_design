@@ -1,164 +1,33 @@
 .nav {
+  // taking nav out of document flow
   position: absolute;
+  left: 0;
+  right: 0;
+  top: 1em;
   width: 100%;
 
+  z-index: 9999;
+  display: flex;
+
+  // nav logo
   &__logo {
-    float: left; 
     padding: 0.5em;
-
     text-transform: uppercase;
+    font-size: $fs-large;
     font-weight: $fw-bold;
-    font-size: 1.2rem;
-    letter-spacing: 0px;
-
-    @include mq(big) {
-      padding: 0;
-    }
   }
 
+  // nav ul
   &__list {
-    float: right;
-
-    @include mq(big) {
-      position: absolute; // Positioning parent ul list to the middle of the page
-      top: 50%;
-      transform: translateY(-50%);
-      width: 100%; /// setting 100% width to cover nav-container div
-    }
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
   }
 
+  // nav li
   &__link {
-    display: inline-block;
     padding: 1em;
-
-    & a {
-      outline: none;
-      text-transform: uppercase;
-      font-weight: bolder;
-
-      @include mq(big) {
-        padding: 0.625em 1.5em; // Spreading links to create space
-        opacity: 0;
-        transform: translateX(-1.3em);
-        transition: all 0.2s ease;
-      }
-    }
-
-    @include mq(big) {
-      display: block; // Seting links vertically
-      float: none; 
-      width: 100%;
-      text-align: right;
-      margin-bottom: 0.625em;
-      
-      // Animation for the link - sliding in one at a time
-      &:nth-child(1) a {
-        transition-delay: 0.2s;
-      }
-
-      &:nth-child(2) a {
-        transition-delay: 0.3s;
-      }
-
-      &:nth-child(3) a {
-        transition-delay: 0.4s;
-      }
-    }
+    font-weight: $fw-normal;
   }
-
-  @include mq(big) {
-    &__container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: gray(1);
-      opacity: 0;
-      transition: all 0.2s ease;
-    }
-
-    &__btn {
-      // Positioning navbar to the right side of the screen
-      position: fixed; 
-      right: 0.625em;
-      top: 0.625em;
-      display: block;
-      width: 3em;
-      height: 3em;
-      cursor: pointer;
-      z-index: 9999;
-      border-radius: 50%;
-    }
-
-    // Creating navbars
-    &__bar,
-    &__bar:before,
-    &__bar:after {
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: gray(4);
-      border-radius: 2px;
-      margin-left: 14px;
-    }
-
-    // Positioning navbars
-    &__bar {
-      margin-top: 4px;
-      opacity: 1;
-
-      &:before {
-        margin-top: 1em;
-      }
-
-      &:after {
-        margin-top: 4px;
-      }
-    }
-  }
-} 
-
-/* When checked it only rotates entire navbars by 45 deg */
-#nav:checked + .nav__btn {
-  transform: rotate(45deg);
-}
-
-#nav:checked + .nav__btn .nav__bar {
-  background: #000;
-  transition: transform 0.2s ease;
-}
-
-/* first bars moves down by 6px and rotates 180 to form back slash  */
-#nav:checked + .nav-btn .nav__bar:nth-child(1) {
-  transform: translateY(6px) rotate(180deg);
-}
-
-/* Checked - hide second bar */
-#nav:checked + .nav-btn .nav__bar:nth-child(2) {
-  opacity: 0;
-}
-
-/* Checked - move third bar up and create forward slash */
-#nav:checked + .nav-btn .nav__bar:nth-child(3) {
-  transform: translateY(-6px) rotate(90deg);
-}
-
-/* Put navbar above everything else and appear */
-#nav:checked ~ .nav__container {
-  z-index: 9990;
-  opacity: 1;
-}
-
-/* links animation */
-#nav:checked ~ .nav__container ul li a {
-  opacity: 1; /* make links appear */
-  transform: translateX(0); /* moving links to all the way to the right side screen*/
-}
-
-
-/* Hiding default checkbox */
-.hidden {
-  display: none;
 }

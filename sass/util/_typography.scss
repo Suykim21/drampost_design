@@ -1,22 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Karla|Montserrat:300,400,900');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,700');
 
-$ff-title: 'Karla', sans-serif;
-$ff-serif: 'Montserrat', sans-serif;
+// Font Family
+$ff-serif: 'Poppins', sans-serif;
 
+// Font Weights
 $fw-light: 300;
 $fw-normal: 400;
-$fw-bold: 900;
+$fw-bold: 700;
 
-// Home typography
-.main-title {
-  color: gray(4);
-  font-size: 5rem;
-  line-height: 0.95;
-
-  & span {
-    display: block; // Putting onto next line
-    color: $primary;
-    font-size: 5.8rem;
-    text-align: right;
-  }
-}
+// Font Size
+$fs-small: 0.5rem;
+$fs-normal: 1rem;
+$fs-large: 1.5rem;
+$fs-title: 9rem;
